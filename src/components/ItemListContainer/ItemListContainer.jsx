@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"
 import { getProducts } from "../../data/data.js"
 import ItemList from "./ItemList.jsx"
 import "./itemlistcontainer.css"
-import { PiDresserFill } from "react-icons/pi"
+import {  } from "react-icons/pi"
 
 const ItemListContainer = ({ greeting }) => {
     const [products, setProducts] = useState([])
