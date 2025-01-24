@@ -1,11 +1,17 @@
+import { useContext } from "react";
+import { CartContext } from "../../context/CartContext";
 import { BiCartDownload } from "react-icons/bi";
+import { Link } from "react-router-dom";
 
 const CartWidget = () => {
+    const { totalQuantity } = useContext(CartContext)
+
+    let quantity = totalQuantity()
     return (
-        <div className="carrito">
+        <Link to={"/Cart"} className="carrito">
             <BiCartDownload />
-            <p>2</p>
-        </div>
+            <p>{ quantity !== 0 && quantity }</p>
+        </Link>
     )
 }
 

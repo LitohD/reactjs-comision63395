@@ -1,22 +1,26 @@
 import CartWidget from "./CartWidget" 
+import { FaTabletScreenButton } from "react-icons/fa6"
 import "./navbar.scss"
+import { NavLink, Link, useNavigate} from "react-router-dom"
 
 const NavBar = () => {
+
+    const navigate = useNavigate()
+
     return (
         <nav className="navbar">
 
-            <div className="brand">
-        <img src="https://img.freepik.com/vector-premium/logotipo-monitor-tienda-digital-logotipo-productos-electronicos-o-logotipo-tienda-logotipo-tienda_372882-57.jpg?semt=ais_hybrid" alt="" />
-        <p>Technology</p>
-            </div>
-
             <ul className="categories">
-                <li className="category">Celulares</li>
-                <li className="category">Tablets</li>
-                <li className="category">Notebook</li>
+                <NavLink to="/category/celulares" className={ ( { isActive } ) => isActive ? "category-active" : "category" }>Celulares</NavLink>
+                <NavLink to="/category/tablets" className={ ( { isActive } ) => isActive ? "category-active" : "category" }>Tablets</NavLink>
+                <NavLink to="/category/notebooks" className={ ( { isActive } ) => isActive ? "category-active" : "category" }>Notebooks</NavLink>
             </ul>
 
-        <CartWidget/>
+            <Link to="/" className="brand">
+                <FaTabletScreenButton className="icon-brand" />
+                <p className="title-brand">Technology</p>
+            </Link>
+            <CartWidget/>
         
         </nav>
     )
