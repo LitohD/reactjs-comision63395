@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route} from 'react-router-dom'
 import { MoonLoader } from 'react-spinners'
 import { CartProvider } from './context/CartContext'
 import Cart from './components/Cart/Cart'
+import Checkout from './components/Checkout/Checkout'
 import './App.css'
 
 function App(){
@@ -20,6 +21,7 @@ function App(){
             <Route path="/category/:idCategory" element={<ItemListContainer greeting={"Bienvenido/a a mi ecommerce"} /> }/>
             <Route path="/detail/:idProduct" element={<ItemDetailContainer/>} />
             <Route path="/Cart" element={<Cart/>} />
+            <Route path="/checkout" element={<Checkout/>} />
 
             <Route path="*" element={ <MoonLoader color="gold" />} />
           </Routes>

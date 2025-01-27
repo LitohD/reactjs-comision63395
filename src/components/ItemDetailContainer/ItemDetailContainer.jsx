@@ -1,32 +1,34 @@
 import { useState, useEffect } from "react";
 import ItemDetail from "./ItemDetail";
-import {getProducts} from "../../data/data.js"
+import { doc, getDoc} from "firebase/firestore"
 import { useParams } from "react-router-dom";
-import { PacmanLoader } from "react-spinners";
+import db from "../../db/db.js";
 
 const ItemDetailContainer = () => {
     const [product, setProduct] = useState({})
-    const [loading, setLoading] = useState(true)
 
-        const { idProduct } = useParams()
+    const { idProduct } = useParams()
 
-    useEffect(() => {
-        setLoading(true)
+    const getProduct = async() =>{
+        try{
+            const docRef = doc(db, "products", idProduct)
+            const dataDb = await getDoc(docRef)
 
-        getProducts()
-            .then( ( data ) =>{
-                const productFind = data.find( (dataProduct) => dataProduct.id === idProduct )
-                setProduct(productFind)
-            })
-            .catch((error)=> console.log(error))
-            .finally(() => setLoading(false))
-    }, [idProduct])
-    return (
-        <>
-        {
-            loading === true ? ( <div> <PacmanLoader color="gold"/> </div>) : <ItemDetail product={product}/>
+            const data = { id: dataDb.id, ...dataDb.data() }
+
+            setProduct(data)
+        }catch (error){
+            console.log(error)
         }
-        </>
+    }
+    useEffect(() => {
+        
+        getProduct()
+
+    }, [idProduct])
+
+    return (
+        <ItemDetail product={product}/>
     )
 }
 
