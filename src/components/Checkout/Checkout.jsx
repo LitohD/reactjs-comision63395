@@ -3,6 +3,7 @@ import FormCheckout from "./FormCheckout"
 import { CartContext } from "../../context/CartContext"
 import { Timestamp, collection, addDoc } from "firebase/firestore"
 import db from "../../db/db.js"
+import "./checkout.css"
 
 const Checkout = () => {
     const [dataForm, setDataForm] = useState({
@@ -43,7 +44,7 @@ const Checkout = () => {
         <div>
             {
                 orderId ? (
-                    <div>
+                    <div className="order-finish">
                         <h2>Su pedido se ha realizado coorectamente!! Guarde su numero de seguimiento </h2>
                         <h3>{orderId}</h3>
                     </div>

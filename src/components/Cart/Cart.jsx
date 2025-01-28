@@ -1,6 +1,8 @@
 import { useContext } from "react"
 import { CartContext } from "../../context/CartContext"
 import { Link } from "react-router-dom"
+import { BsFillTrash3Fill } from "react-icons/bs"
+import "./Cart.css"
 
 const Cart = () => {
     const { cart, priceTotal, deleteProductById, deleteCart} = useContext(CartContext)
@@ -20,12 +22,12 @@ const Cart = () => {
                 {
                     cart.map((productCart) => (
                         <div className= "item-cart" key={productCart.id}> 
-                            <img className="img-item-cart" src={productCart.image} alt="" />
+                            <img className="img-item-cart" src={productCart.image} width={200} alt="" />
                             <p className="text-item-cart">{productCart.name}</p>
                             <p className="text-item-cart">Cantidad: {productCart.quantity}</p>
                             <p className="text-item-cart">Precio unitario: ${productCart.price}</p>
                             <p className="text-item-cart">Parcial: ${productCart.price * productCart.quantity}</p>
-                            <button onClick={ () => deleteProductById (productCart.id) }>Eliminar</button>
+                            <button className="item-delete" onClick={ () => deleteProductById (productCart.id) }> <BsFillTrash3Fill/></button>
                         </div>
                     ))
                 }

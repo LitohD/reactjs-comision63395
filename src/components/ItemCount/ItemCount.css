@@ -1,0 +1,23 @@
+button {
+    background-color: gold;
+    color: black;
+    border: 2px solid gold;
+    padding: 8px 12px;
+    margin: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 1s ease;
+}
+
+button:hover {
+    background-color: black;
+    color: gold;
+    border-color: gold;
+}
+
+.count-display {
+    font-size: 18px;
+    color: gold;
+    text-align: center;
+    margin: 5px 0; 
+}

@@ -1,0 +1,36 @@
+.item-cart {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.img-item-cart {
+    margin-right: 10px;
+}
+
+.text-item-cart {
+    margin-right: 20px;
+}
+
+.item-delete {
+    margin-left: auto;
+}
+
+.button-to-cart{
+    background-color: gold;
+    color: black;
+    text-decoration: none;
+    border: 2px solid gold;
+    padding: 8px 12px;
+    margin: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 1s ease;
+}
+
+.button-to-cart:hover{
+    background-color: black;
+    color: gold;
+    border-color: gold;
+}

@@ -2,7 +2,6 @@ import NavBar from './components/navbar/NavBar'
 import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer"
 import { BrowserRouter, Routes, Route} from 'react-router-dom'
-import { MoonLoader } from 'react-spinners'
 import { CartProvider } from './context/CartContext'
 import Cart from './components/Cart/Cart'
 import Checkout from './components/Checkout/Checkout'
@@ -17,13 +16,13 @@ function App(){
           <NavBar/>
 
           <Routes>
-            <Route path="/" element={<ItemListContainer greeting={"Bienvenido/a a mi ecommerce"} /> }/>
-            <Route path="/category/:idCategory" element={<ItemListContainer greeting={"Bienvenido/a a mi ecommerce"} /> }/>
+            <Route path="/" element={<ItemListContainer greeting={"Bienvenido/a a Technology"} /> }/>
+            <Route path="/category/:idCategory" element={<ItemListContainer greeting={"Bienvenido/a a Technology"} /> }/>
             <Route path="/detail/:idProduct" element={<ItemDetailContainer/>} />
             <Route path="/Cart" element={<Cart/>} />
             <Route path="/checkout" element={<Checkout/>} />
 
-            <Route path="*" element={ <MoonLoader color="gold" />} />
+            <Route path="*" element={ <div>Error 404 - pagina web no encontrada</div>} />
           </Routes>
         </CartProvider>
       </BrowserRouter>
